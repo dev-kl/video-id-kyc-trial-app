@@ -1,0 +1,61 @@
+<resources>
+<string name="app_name">VikycTrialApp</string>
+<string name="login_form">Login Form</string>
+<string name="enter_client_code">Enter Client Code</string>
+<string name="enter_api_key">Enter Api Key</string>
+<string name="login">Login</string>
+<string name="doc_face_image">Doc face image</string>
+<string name="live_face_image">Live face image</string>
+<string name="document">DOCUMENT</string>
+<string name="live">LIVE</string>
+<string name="document_number">Document Number</string>
+<string name="name">Name</string>
+<string name="gender">Gender</string>
+<string name="dob">Date of Birth</string>
+<string name="original_kyc_info">Original KYC Info</string>
+<string name="email">Email</string>
+<string name="mobile">Mobile</string>
+<string name="address">Address</string>
+<string name="declared_kyc_info">Declared KYC Info</string>
+<string name="face_images">Face Images</string>
+<string name="done">DONE</string>
+<string name="register_form">Register Form</string>
+<string name="business_name_hint">Business Name</string>
+<string name="contact_person_hint">Contact Person</string>
+<string name="email_hint">Email</string>
+<string name="mob_no_hint">Mobile Number</string>
+<string name="purpose_hint">Purpose of Using Service</string>
+<string name="register_btn_text">Register</string>
+<string name="fathersName">Father\'s Name</string>
+<string name="verified_by">Verified By</string>
+<string name="verified_using">Verified Using</string>
+<string name="info_icon">Info icon</string>
+<string name="login_info"><b>Note:</b> Your Client Code and Api Key have been sent to you at your Registered Email Address.</string>
+<string name="client_code_hint">Client Code</string>
+<string name="api_key_hint">Api Key</string>
+<string name="register_info"><b>Note:</b> If you are registering for the first time, your Api Key will be sent to your Registered Email Address.</string>
+<string name="channel_name">Channel 1</string>
+<string name="channel_description">This is channel 1</string>
+<string name="copy_to_client_code">Copy to client code</string>
+<string name="otp_type">OTP Type</string>
+<string name="doc_front_image">Doc front image</string>
+<string name="doc_back_image">Doc back image</string>
+<string name="mothersName">Mother\'s Name</string>
+<string name="system_suggested_status">System Suggested Status</string>
+<string name="agent_status">Agent Status</string>
+<string name="login_instead_btn_txt">Login Instead</string>
+<string name="register_instead_btn_txt">Register Instead</string>
+<string name="register_success_message">Registered successfully. Please check your email for Client Code and Api Key.</string>
+<string name="screen_title_hint">Screen Title</string>
+<string name="document_verification_status">Document Verification Status</string>
+<string name="salt_hint">Salt</string>
+<string name="document_verification_code">Document Verification Code</string>
+<string name="document_verification_msg">Document Verification Mesage</string>
+
+
+<string name="client_code">Enter your Client Code <font fgcolor="red">*</font></string>
+<string name="api_key">Enter your API Key <font fgcolor="red">*</font></string>
+<string name="salt">Enter the Salt </string>
+<string name="mandatory">Mandatory fields are marked with <font fgcolor="red">*</font></string>
+
+</resources>

@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/vikyc_margin_normal"
+        android:clipToPadding="false"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/faceImagesTileTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/vikyc_margin_large"
+                android:gravity="center_horizontal"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:text="@string/face_images" />
+
+            <ImageView
+                android:id="@+id/docFaceIv"
+                android:layout_width="0dp"
+                android:layout_height="128dp"
+                app:layout_constraintTop_toBottomOf="@id/faceImagesTileTv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/equalSignTv"
+                android:layout_marginTop="@dimen/vikyc_margin_large"
+                android:layout_marginEnd="@dimen/vikyc_margin_normal"
+                android:contentDescription="@string/doc_face_image" />
+
+            <TextView
+                android:id="@+id/equalSignTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/docFaceIv"
+                app:layout_constraintBottom_toBottomOf="@id/docFaceIv"
+                app:layout_constraintStart_toEndOf="@id/docFaceIv"
+                app:layout_constraintEnd_toStartOf="@id/liveFaceIv"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
+
+            <ImageView
+                android:id="@+id/liveFaceIv"
+                android:layout_width="0dp"
+                android:layout_height="128dp"
+                app:layout_constraintTop_toBottomOf="@id/faceImagesTileTv"
+                app:layout_constraintStart_toEndOf="@id/equalSignTv"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/vikyc_margin_large"
+                android:layout_marginStart="@dimen/vikyc_margin_normal"
+                android:contentDescription="@string/live_face_image" />
+
+            <TextView
+                android:id="@+id/docFaceLabelTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/docFaceIv"
+                app:layout_constraintStart_toStartOf="@id/docFaceIv"
+                app:layout_constraintEnd_toEndOf="@id/docFaceIv"
+                android:layout_marginTop="@dimen/vikyc_margin_small"
+                android:text="@string/document"/>
+
+            <TextView
+                android:id="@+id/liveFaceLabelTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/liveFaceIv"
+                app:layout_constraintStart_toStartOf="@id/liveFaceIv"
+                app:layout_constraintEnd_toEndOf="@id/liveFaceIv"
+                android:layout_marginTop="@dimen/vikyc_margin_small"
+                android:text="@string/live"/>
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="docFaceLabelTv,liveFaceLabelTv"/>
+
+            <TextView
+                android:id="@+id/matchStatusLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/barrier1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/vikyc_margin_large"
+                android:text="@string/system_suggested_status"
+                android:gravity="start"
+                />
+            <TextView
+                android:id="@+id/matchStatusTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/matchStatusLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/vikyc_margin_small"
+                android:gravity="center_horizontal"
+                android:background="#ddd"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+            <TextView
+                android:id="@+id/agentStatusLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/matchStatusTv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/vikyc_margin_large"
+                android:text="@string/agent_status"
+                android:gravity="start"
+                />
+            <TextView
+                android:id="@+id/agentStatusTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/agentStatusLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/vikyc_margin_small"
+                android:gravity="center_horizontal"
+                android:background="#ddd"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <ImageView
+                android:id="@+id/docFrontIv"
+                android:layout_width="0dp"
+                android:layout_height="128dp"
+                app:layout_constraintTop_toBottomOf="@id/agentStatusTv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/docBackIv"
+                android:layout_margin="@dimen/vikyc_margin_large"
+                android:visibility="gone"
+                android:contentDescription="@string/doc_front_image" />
+
+            <ImageView
+                android:id="@+id/docBackIv"
+                android:layout_width="0dp"
+                android:layout_height="128dp"
+                app:layout_constraintTop_toBottomOf="@id/agentStatusTv"
+                app:layout_constraintStart_toEndOf="@id/docFrontIv"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="@dimen/vikyc_margin_large"
+                android:visibility="gone"
+                android:contentDescription="@string/doc_back_image" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="docFrontIv,docBackIv"
+                app:barrierDirection="bottom"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/barrier2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:paddingBottom="48dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/orgKycInfoTitleTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_large"
+                    android:gravity="center_horizontal"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:text="@string/original_kyc_info" />
+
+                <TextView
+                    android:id="@+id/docVerificationStatusLabelOrgTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/document_verification_status" />
+
+                <TextView
+                    android:id="@+id/docVerificationStatusOrgTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/docVerificationCodeLabelOrgTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/document_verification_code" />
+
+                <TextView
+                    android:id="@+id/docVerificationCodeOrgTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/docVerificationMsgLabelOrgTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/document_verification_msg" />
+
+                <TextView
+                    android:id="@+id/docVerificationMsgOrgTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+
+                <TextView
+                    android:id="@+id/vrfByLabelOrgTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/verified_by" />
+
+                <TextView
+                    android:id="@+id/vrfByOrgTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/vrfUsingLabelOrgTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/verified_using" />
+
+                <TextView
+                    android:id="@+id/vrfUsingOrgTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/docNo1LabelOrgTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/document_number" />
+
+                <TextView
+                    android:id="@+id/docNo1OrgTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/nameLabelOrgTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/name" />
+
+                <TextView
+                    android:id="@+id/nameOrgTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/fathersNameLabelOrgTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/fathersName" />
+
+                <TextView
+                    android:id="@+id/fathersNameOrgTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/mothersNameLabelOrgTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/mothersName" />
+
+                <TextView
+                    android:id="@+id/mothersNameOrgTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/genderLabelOrgTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/gender" />
+
+                <TextView
+                    android:id="@+id/genderOrgTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/dobLabelOrgTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/dob" />
+
+                <TextView
+                    android:id="@+id/dobOrgTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/emailLabelOrgTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/email" />
+
+                <TextView
+                    android:id="@+id/emailOrgTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/mobileLabelOrgTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/mobile" />
+
+                <TextView
+                    android:id="@+id/mobileOrgTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/addressLabelOrgTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/address" />
+
+                <TextView
+                    android:id="@+id/addressOrgTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/dclKycInfoTitleTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:gravity="center_horizontal"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:text="@string/declared_kyc_info" />
+
+                <TextView
+                    android:id="@+id/docNo1LabelDclTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/document_number" />
+
+                <TextView
+                    android:id="@+id/docNo1DclTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/docVerificationStatusLabelDclTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/document_verification_status" />
+
+                <TextView
+                    android:id="@+id/docVerificationStatusDclTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/docVerificationCodeLabelDclTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/document_verification_code" />
+
+                <TextView
+                    android:id="@+id/docVerificationCodeDclTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/docVerificationMsgLabelDclTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/document_verification_msg" />
+
+                <TextView
+                    android:id="@+id/docVerificationMsgDclTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+
+                <TextView
+                    android:id="@+id/vrfByLabelDclTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/verified_by" />
+
+                <TextView
+                    android:id="@+id/vrfByDclTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/vrfUsingLabelDclTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/verified_using" />
+
+                <TextView
+                    android:id="@+id/vrfUsingDclTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/nameLabelDclTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/name" />
+
+                <TextView
+                    android:id="@+id/nameDclTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/fathersNameLabelDclTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/fathersName" />
+
+                <TextView
+                    android:id="@+id/fathersNameDclTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/mothersNameLabelDclTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/mothersName" />
+
+                <TextView
+                    android:id="@+id/mothersNameDclTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/genderLabelDclTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/gender" />
+
+                <TextView
+                    android:id="@+id/genderDclTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/dobLabelDclTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/dob" />
+
+                <TextView
+                    android:id="@+id/dobDclTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/emailLabelDclTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/email" />
+
+                <TextView
+                    android:id="@+id/emailDclTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/mobileLabelDclTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/mobile" />
+
+                <TextView
+                    android:id="@+id/mobileDclTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <TextView
+                    android:id="@+id/addressLabelDclTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_normal"
+                    android:text="@string/address" />
+
+                <TextView
+                    android:id="@+id/addressDclTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/doneBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vikyc_margin_very_large"
+                    app:backgroundTint="@color/colorPrimary"
+                    android:textColor="#fff"
+                    android:text="@string/done" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <include layout="@layout/vikyc_layout_overlay_loading" />
+</FrameLayout>
